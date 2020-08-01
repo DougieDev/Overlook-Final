@@ -26,7 +26,7 @@ describe('Bookings', function() {
     expect(Booking).to.be.a('function');
   });
 
-  it('should be an instance of Booking', function(){
+  it('should be an instance of Booking', function() {
     expect(booking1).to.be.an.instanceof(Booking)
   });
 
