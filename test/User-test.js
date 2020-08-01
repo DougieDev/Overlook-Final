@@ -21,7 +21,7 @@ describe('User', function() {
     expect(User).to.be.a('function');
   });
 
-  it('should be an instance of User', function(){
+  it('should be an instance of User', function() {
     expect(user1).to.be.an.instanceof(User)
   });
 
