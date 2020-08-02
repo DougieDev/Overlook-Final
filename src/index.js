@@ -29,5 +29,3 @@ fetch("https://fe-apps.herokuapp.com/api/v1/overlook/1904/rooms/rooms")
   .then(data => {
     roomsData = data.rooms;
   }).catch(err => console.log('error: ', err))
-
-// console.log('This is the JavaScript entry file - your code begins here.');
