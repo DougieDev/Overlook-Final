@@ -23,6 +23,7 @@ function formSubmit(e) {
     showCustomerPage()
   } else {
     alert('Invalid username or password')
+    clearFormInputs()
   }
 }
 
