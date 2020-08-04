@@ -1,9 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@300&display=swap');
 /* This is an example of using Sass, otherwise plain CSS works too*/
 $primary-background: #f0f0f0;
-;
 
 body {
   background: $primary-background;
+  // background-image: url(./images/argyle.png);
   height: 100vh;
 }
 
@@ -25,4 +26,24 @@ body {
 
 .hidden {
   display: none;
+}
+
+.manager-page {
+  height: 100vh;
+}
+
+.customer-page {
+  @extend .manager-page;
+}
+
+.widget {
+  display: inline-block;
+  height: 50%;
+  font-family: 'Mukta', sans-serif;
+  font-size: 16px;
+  margin: 5px 20px;
+  padding: 10px;
+  background-color: floralwhite;
+  border: 1.5px solid gainsboro;
+  border-radius: 10px;
 }
