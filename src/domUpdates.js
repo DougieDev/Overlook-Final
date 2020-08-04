@@ -4,6 +4,7 @@ let passwordInput = document.querySelector('.password-input')
 let loginForm = document.querySelector('.login-form')
 let loginWindow = document.querySelector('.login-window')
 let managerPage = document.querySelector('.manager-page')
+let customerPage = document.querySelector('.customer-page')
 
 submitBtn.addEventListener('click', formSubmit)
 
@@ -14,8 +15,15 @@ function submitHandler() {
 
 function formSubmit(e) {
   e.preventDefault()
-  if (usernameInput.value === 'manager')
-  submitHandler()
+  if (usernameInput.value === 'manager' && passwordInput.value === 'overlook2020') {
+    submitHandler()
+    showManagerPage()
+  } else if (usernameInput.value ==='customer1' && passwordInput.value === 'overlook2020') {
+    submitHandler()
+    showCustomerPage()
+  } else {
+    alert('Invalid username or password')
+  }
 }
 
 function clearFormInputs() {
@@ -25,5 +33,12 @@ function clearFormInputs() {
 
 function hideLogin() {
   loginWindow.classList.add('hidden')
+}
+
+function showManagerPage() {
   managerPage.classList.remove('hidden')
+}
+
+function showCustomerPage() {
+  customerPage.classList.remove('hidden')
 }
