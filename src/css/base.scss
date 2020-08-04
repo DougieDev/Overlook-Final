@@ -3,9 +3,13 @@
 $primary-background: #f0f0f0;
 
 body {
-  // background: $primary-background;
-  background-image: url('./images/argyle.png');
+  background: $primary-background;
   height: 100vh;
+}
+
+.hotel-name-header {
+  display: flex;
+  justify-content: center;
 }
 
 .login-window {
