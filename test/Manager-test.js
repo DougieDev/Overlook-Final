@@ -59,4 +59,16 @@ describe('Manager', function() {
     let result = manager.getRoomsAvailable('2020/04/22')
     expect(result).to.deep.equal([rooms[1]])
   })
+
+  it('should be able to get the percentage of occupied rooms', function() {
+    let result = manager.getOccupancyPercentage('2020/04/22')
+    expect(result).to.equal(66.66666666666666)
+  })
+
+  it('should be able to get the total revenue for the day', function() {
+    let result = manager.getTotalRevenue('2020/04/22')
+    expect(result).to.equal(621.8)
+  })
+
+
 })
