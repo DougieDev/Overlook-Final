@@ -1,7 +1,24 @@
 /* This is an example of using Sass, otherwise plain CSS works too*/
-$primary-background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+$primary-background: #f0f0f0;
 ;
 
 body {
   background: $primary-background;
+  height: 100vh;
+}
+
+.login-window {
+  height: 30%;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #000;
+  margin-left: 25%;
+}
+
+.form-submit {
+  display: block;
+  border-radius: 10px;
+  margin-top: 10px;
 }
