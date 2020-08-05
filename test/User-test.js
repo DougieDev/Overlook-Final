@@ -2,19 +2,22 @@ import chai from 'chai';
 const expect = chai.expect;
 
 const User = require('../src/User').default;
+const mockBookings = require('../src/mockBookings').default;
 
+console.log(mockBookings)
 describe('User', function() {
   let user1, user2;
   beforeEach(function() {
     user1 = new User({
       id: 1,
-      name: "Leatha Ullrich"
+      name: "Leatha Ullrich",
+      bookingData: mockBookings
     })
     user2 = new User({
       id: 2,
-      name: "Rocio Schuster"
+      name: "Rocio Schuster",
+      bookingData: mockBookings
     })
-
   });
 
   it('should be a function', function() {
@@ -40,4 +43,20 @@ describe('User', function() {
   it('should be able to have a different name', function() {
     expect(user2.name).to.equal("Rocio Schuster")
   });
+
+  it('should be able to get the rooms it has booked', function() {
+    let result = user1.getUserRoomBookings('2020/02/05')
+    let expected = [{
+          "id": "5fwrgu4i7k55hl6t8",
+          "userID": 1,
+          "date": "2020/02/05",
+          "roomNumber": 12,
+          "roomServiceCharges": []
+      }]
+    expect(result).to.deep.equal(expected)
+  });
+
+  it('should be able to show the amount spent on bookings for this date', function() {
+    user1.
+  })
 });

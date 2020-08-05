@@ -12,3 +12,4 @@ import './domUpdates.js'
 let userData, bookingData, roomsData;
 import './apiCalls.js'
 import './Manager.js'
+import './User.js'
