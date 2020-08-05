@@ -6,12 +6,24 @@ class User {
     this.roomsData = userInfo.roomsData
   }
 
-  getUserRoomBookings(date) {
-    return this.bookingData.filter(booking => booking.date === date && booking.userID === this.id)
+  getUserBookings() {
+    return this.bookingData.filter(booking => booking.userID === this.id)
   }
 
-  getTotalSpent(date) {
+  findRoom(roomId) {
+    return this.roomsData.find(room => {
+      return room.number === roomId
+    })
+  }
 
+  getTotalSpent() {
+    return this.getUserBookings().reduce((acc, booking) => {
+      // Loop through all rooms and find() the room that
+      // matches this booking.
+      let targetRoom = this.findRoom(booking.roomNumber)
+      acc += targetRoom.costPerNight
+      return acc;
+    }, 0)
   }
 }
 
