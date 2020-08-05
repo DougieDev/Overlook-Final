@@ -17,6 +17,10 @@ body {
   justify-content: center;
 }
 
+.customer-header {
+  @extend .manager-header;
+}
+
 .login-window {
   height: 30%;
   width: 50%;
@@ -46,9 +50,6 @@ body {
 }
 
 .widget {
-  // display: inline-block;
-  // height: 50%;
-  // width: 20%;
   font-family: 'Mukta', sans-serif;
   font-size: 16px;
   margin: 5px 20px;
@@ -56,6 +57,7 @@ body {
   background-color: floralwhite;
   border: 1.5px solid gainsboro;
   border-radius: 10px;
+  height: fit-content;
 }
 
 .available-rooms {
@@ -65,7 +67,8 @@ body {
 }
 
 .manager-widgets {
-  display: flex;
+  @extend .available-rooms;
+  font-size: 1.17em;
 }
 
 .customer-widgets {
