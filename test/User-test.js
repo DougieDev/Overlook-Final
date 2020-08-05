@@ -10,16 +10,14 @@ describe('User', function() {
   beforeEach(function() {
     user1 = new User({
       id: 1,
-      name: "Leatha Ullrich",
-      bookingData: mockBookings,
-      roomsData: mockRooms
-    })
+      name: "Leatha Ullrich"
+    }, mockRooms, mockBookings)
+
     user2 = new User({
       id: 2,
-      name: "Rocio Schuster",
-      bookingData: mockBookings,
-      roomsData: mockRooms
-    })
+      name: "Rocio Schuster"
+    }, mockRooms, mockBookings)
+
   });
 
   it('should be a function', function() {
