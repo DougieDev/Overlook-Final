@@ -1,9 +1,9 @@
 class User {
-  constructor(userInfo) {
+  constructor(userInfo, roomsData, bookingData) {
     this.id = userInfo.id
     this.name = userInfo.name
-    this.bookingData = userInfo.bookingData
-    this.roomsData = userInfo.roomsData
+    this.bookingData = bookingData
+    this.roomsData = roomsData
   }
 
   getUserBookings() {
