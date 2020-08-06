@@ -33,15 +33,19 @@ bookRoomSubmit.addEventListener('click', function(e) {
   e.preventDefault()
   let user = new User({id: 1, name: "Leatha Ullrich"}, roomsData, bookingData)
   let options = user.makeBooking(roomBookingInput.value)
-  fetch("https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings", options)
-      .then(response => response.json())
-      .then(data => {
-        user.bookingData.push(data)
-        displayCustomerData(),
-        showCustomerPage(),
-        hideBookingPage()
-      })
-      .catch(err => console.log('error: ', err))
+  if(!roomBookingInput.value) {
+    alert('Please choose a date')
+  } else {
+    fetch("https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings", options)
+    .then(response => response.json())
+    .then(data => {
+      user.bookingData.push(data)
+      displayCustomerData(),
+      showCustomerPage(),
+      hideBookingPage()
+    })
+    .catch(err => console.log('error: ', err))
+  }
 })
 
 function loginFormSubmit(e) {
