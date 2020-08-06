@@ -18,8 +18,6 @@ class User {
 
   getTotalSpent() {
     return this.getUserBookings().reduce((acc, booking) => {
-      // Loop through all rooms and find() the room that
-      // matches this booking.
       let targetRoom = this.findRoom(booking.roomNumber)
       acc += targetRoom.costPerNight
       return acc;
