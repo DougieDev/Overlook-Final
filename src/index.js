@@ -13,30 +13,3 @@ let userData, bookingData, roomsData;
 import './apiCalls.js'
 import './Manager.js'
 import './User.js'
-// const User = require('../src/User').default;
-// const displayCustomerData = require('./domUpdates.js')
-//
-// let roomBookingInput = document.querySelector('.date-input')
-// let bookRoomSubmit = document.querySelector('.book-room-submit')
-//
-// bookRoomSubmit.addEventListener('click', function(e) {
-// e.preventDefault()
-// let user = new User({id: 1, name: "Leatha Ullrich"}, roomsData, bookingData)
-// console.log(roomsData)
-// let options = user.makeBooking(roomBookingInput.value)
-// fetch("https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings", options)
-//     .then(response => response.json())
-//     .then(data => {
-//       reloadBookings();
-//       return data;
-//     })
-//     .then(data => displayCustomerData())
-// })
-//
-// const reloadBookings = () => {
-//   fetch("https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings")
-//   .then(response => response.json())
-//   .then(data => {
-//     bookingData = data.bookings;
-//   }).catch(err => console.log('error: ', err))
-// }
