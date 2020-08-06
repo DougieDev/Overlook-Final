@@ -86,7 +86,6 @@ function hideBookingPage() {
 
 function displayManagerData() {
   let manager = new Manager(roomsData, bookingData)
-  // console.log(manager)
   managerCard1.innerHTML = `Total Available Rooms Today: <h1 class="available-rooms"> ${manager.getRoomsAvailable('2020/04/22').length} </h1>`
   managerCard2.innerHTML = `Total Revenue For Today: <h1 class="available-rooms">$${manager.getTotalRevenue('2020/04/22')} </h1>`
   managerCard3.innerHTML = `Total Occupancy Percentage: <h1 class="available-rooms"> ${manager.getOccupancyPercentage('2020/04/22')}% </h1>`
@@ -94,7 +93,6 @@ function displayManagerData() {
 
 function displayCustomerData() {
   let user = new User({id: 1, name: "Leatha Ullrich"}, roomsData, bookingData)
-  console.log('user check', bookingData.length)
   customerCard1.innerHTML = `Rooms Booked: <h1 class="room-booked"> ${user.getUserBookings().map(booking => `<p class="booking-date">Room: ${booking.roomNumber} <br> Date: ${booking.date}</p>`).join('')}`
   customerCard2.innerHTML = `Total Amount Spent: <h1 class="room-booked"> ${user.getTotalSpent().toFixed(2)}`
 }
