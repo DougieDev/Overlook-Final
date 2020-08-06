@@ -5,15 +5,22 @@ let loginForm = document.querySelector('.login-form')
 let loginWindow = document.querySelector('.login-window')
 let managerPage = document.querySelector('.manager-page')
 let customerPage = document.querySelector('.customer-page')
+let bookingWindow = document.querySelector('.book-room-window')
 let managerCard1 = document.querySelector('.manager-card1')
 let managerCard2 = document.querySelector('.manager-card2')
 let managerCard3 = document.querySelector('.manager-card3')
 let customerCard1 = document.querySelector('.customer-card1')
 let customerCard2 = document.querySelector('.customer-card2')
+let bookRoomBtn = document.querySelector('.book-room-button')
+let bookRoomSubmit = document.querySelector('.book-room-submit')
+let roomBookingInput = document.querySelector('.date-input')
+
 const Manager = require('../src/Manager').default;
 const User = require('../src/User').default;
 
-submitBtn.addEventListener('click', formSubmit)
+submitBtn.addEventListener('click', loginFormSubmit)
+bookRoomBtn.addEventListener('click', showBookingPage)
+bookRoomSubmit.addEventListener('click', roomBookingSubmit)
 
 function submitHandler() {
   clearFormInputs()
@@ -22,7 +29,22 @@ function submitHandler() {
   displayCustomerData()
 }
 
-function formSubmit(e) {
+bookRoomSubmit.addEventListener('click', function(e) {
+  e.preventDefault()
+  let user = new User({id: 1, name: "Leatha Ullrich"}, roomsData, bookingData)
+  let options = user.makeBooking(roomBookingInput.value)
+  fetch("https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings", options)
+      .then(response => response.json())
+      .then(data => {
+        user.bookingData.push(data)
+        displayCustomerData(),
+        showCustomerPage(),
+        hideBookingPage()
+      })
+      .catch(err => console.log('error: ', err))
+})
+
+function loginFormSubmit(e) {
   e.preventDefault()
   if (usernameInput.value === 'manager' && passwordInput.value === 'overlook2020') {
     submitHandler()
@@ -53,6 +75,15 @@ function showCustomerPage() {
   customerPage.classList.remove('hidden')
 }
 
+function showBookingPage() {
+  bookingWindow.classList.remove('hidden')
+  customerPage.classList.add('hidden')
+}
+
+function hideBookingPage() {
+  bookingWindow.classList.add('hidden')
+}
+
 function displayManagerData() {
   let manager = new Manager(roomsData, bookingData)
   // console.log(manager)
@@ -63,6 +94,13 @@ function displayManagerData() {
 
 function displayCustomerData() {
   let user = new User({id: 1, name: "Leatha Ullrich"}, roomsData, bookingData)
+  console.log('user check', bookingData.length)
   customerCard1.innerHTML = `Rooms Booked: <h1 class="room-booked"> ${user.getUserBookings().map(booking => `<p class="booking-date">Room: ${booking.roomNumber} <br> Date: ${booking.date}</p>`).join('')}`
-  customerCard2.innerHTML = `Total Amount Spent: <h1 class="room-booked"> ${user.getTotalSpent()}`
+  customerCard2.innerHTML = `Total Amount Spent: <h1 class="room-booked"> ${user.getTotalSpent().toFixed(2)}`
 }
+
+function roomBookingSubmit(e) {
+  e.preventDefault()
+}
+
+export default displayCustomerData;
