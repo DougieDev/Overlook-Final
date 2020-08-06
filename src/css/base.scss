@@ -74,3 +74,11 @@ body {
 .customer-widgets {
   @extend .manager-widgets;
 }
+
+.book-room-window {
+  @extend .login-window;
+}
+
+.book-room-button {
+  margin: 0 0 20px 45%;
+}
